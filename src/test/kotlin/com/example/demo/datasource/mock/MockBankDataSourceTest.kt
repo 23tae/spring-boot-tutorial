@@ -14,7 +14,7 @@ class MockBankDataSourceTest {
         // given
 
         // when
-        val banks = mockDataSource.getBanks()
+        val banks = mockDataSource.retrieveBanks()
 
         // then
         assertThat(banks.size).isGreaterThanOrEqualTo(3)
@@ -23,7 +23,7 @@ class MockBankDataSourceTest {
     @Test
     fun `should provide some mock data`() {
         // when
-        val banks = mockDataSource.getBanks()
+        val banks = mockDataSource.retrieveBanks()
 
         // then
         assertThat(banks).allMatch { it.accountNumber.isNotBlank() }
