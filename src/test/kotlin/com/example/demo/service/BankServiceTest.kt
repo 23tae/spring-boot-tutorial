@@ -7,7 +7,7 @@ import io.mockk.verify
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-class BankServiceTest {
+internal class BankServiceTest {
 
     private val dataSource: BankDataSource = mockk(relaxed = true)
     private val bankService = BankService(dataSource)
