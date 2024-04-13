@@ -23,7 +23,7 @@ internal class BankControllerTest {
     val baseUrl = "/api/banks"
 
     @Nested
-    @DisplayName("getBanks()")
+    @DisplayName("GET /api/banks")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class GetBanks {
         @Test
@@ -41,7 +41,7 @@ internal class BankControllerTest {
 
 
     @Nested
-    @DisplayName("getBank()")
+    @DisplayName("GET /api/banks/{accountNumber}")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class GetBank {
 
@@ -71,5 +71,12 @@ internal class BankControllerTest {
                 .andDo { print() }
                 .andExpect { status { isNotFound() } }
         }
+    }
+
+    @Nested
+    @DisplayName("POST /api/banks")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class PostNewBank {
+
     }
 }
