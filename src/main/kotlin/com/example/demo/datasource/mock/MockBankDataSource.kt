@@ -3,6 +3,7 @@ package com.example.demo.datasource.mock
 import com.example.demo.datasource.BankDataSource
 import com.example.demo.model.Bank
 import org.springframework.stereotype.Repository
+import java.util.NoSuchElementException
 
 @Repository
 class MockBankDataSource : BankDataSource {
@@ -15,5 +16,6 @@ class MockBankDataSource : BankDataSource {
 
     override fun retrieveBanks(): Collection<Bank> = banks
 
-    override fun retrieveBank(accountNumber: String): Bank = banks.first { it.accountNumber == accountNumber }
+    override fun retrieveBank(accountNumber: String): Bank = banks.firstOrNull() { it.accountNumber == accountNumber }
+        ?: throw NoSuchElementException("could not find a bank with account number $accountNumber")
 }
