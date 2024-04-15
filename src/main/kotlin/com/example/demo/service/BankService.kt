@@ -9,6 +9,6 @@ class BankService(private val dataSource: BankDataSource) {
 
     fun getBanks(): Collection<Bank> = dataSource.retrieveBanks()
     fun getBank(accountNumber: String): Bank = dataSource.retrieveBank(accountNumber)
-    fun addBank(bank: Bank): Bank = dataSource.createbank(bank)
-//    fun addBank(bank: Bank): Bank = dataSource.saveBank(bank)
+    fun addBank(bank: Bank): Bank = dataSource.createBank(bank)
+    fun updateBank(bank: Bank): Bank = dataSource.updateBank(bank)
 }
